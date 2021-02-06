@@ -1,0 +1,44 @@
+<div class="container-fluid" style="background-color: rgb(247, 247, 247); margin: 0 0;">
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2 margin rounded" *ngFor="let item of blogs">
+            <div class="card" >
+                <div class="ml-3 mt-2 form-inline" style="margin: 15px;">
+                  <div class="mt-2 ml-1">
+                    <h5 class="card-title profile">{{item.Title}}</h5>
+                    <h6 class="card-subtitle mb-2 mt-1 text-muted">Shared publicly - {{item.createdAt}}</h6>
+                  </div>  
+                </div>
+                <div class="card-body">
+                    <div style="margin: 15px;"><span *ngFor="let t of item.Tags">{{t}}</span></div>
+                    <p class="card-text" style="margin: 15px;">{{item.body}}</p>
+                    <img *ngIf="item.img" [src]='item.img' class="img-responsive center-block"/>
+                </div>
+                <div class="card-footer">
+                    
+                    <ngb-accordion #acc="ngbAccordion" class="col-md-12 text-right" style="margin-right: 15px;">
+
+                        <ngb-panel title="3 Comments">
+                            <span>3</span> Comments
+                        <ng-template ngbPanelContent>
+                            <div class="card text-left" style="background-color:  rgb(226, 226, 226); width: fit-content; border-radius: 30px 30px; padding: 10px;">
+                                <div class="ml-3 mt-2 form-inline" style="margin: 15px;">
+                                  <div class="mt-2 ml-1">
+                                    <h5 class="card-title profile">bhjvhv b</h5>
+                                    <h6 class="card-subtitle mb-2 mt-1 text-muted">Shared publicly - 23456</h6>
+                                  </div>  
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text" style="margin: 15px;">hvghvhgvhgvhg</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12"><input type="text" width="100%" class="commentinput" placeholder="Write a comment....."></div>
+                        </ng-template>
+            
+                    </ngb-panel>
+            
+                </ngb-accordion>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
