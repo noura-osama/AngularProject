@@ -18,6 +18,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
+import { AuthService } from './_services/auth.service';
+import { RegisterService } from './_services/register.service';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { LoginComponent } from './login/login.component';
     SignUpComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +44,11 @@ import { LoginComponent } from './login/login.component';
         allowedDomains: ["example.com"],
         disallowedRoutes: ["http://example.com/examplebadroute/"],
       }}),
-      AuthGuard
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard,
+    RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
